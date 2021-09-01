@@ -58,7 +58,7 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     //<<<<<<<<<<<<<<<<<<<<<<TOTAL ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>
     @Test
-    public void total_order_value_should_get_total_amount_when_items_are_selected(){
+    public void total_order_value_should_get_total_amount_when_items_are_selected() throws itemNotFoundException{
         List<String> itemNames = new ArrayList<String>();
         itemNames.add("Sweet corn soup");
         itemNames.add("Vegetable lasagne");
