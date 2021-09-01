@@ -79,7 +79,15 @@ public class Restaurant {
     public String getName() {
         return name;
     }
-
-
-
+    public int totalOrderValue(List<String> itemNames) throws itemNotFoundException {
+        int orderValue = 0;
+        for (String itemName : itemNames) {
+            Item item = findItemByName(itemName);
+            if (item == null) {
+                throw new itemNotFoundException(itemName);
+            }
+            orderValue += item.getPrice();
+        }
+        return orderValue;
+    }
 }
