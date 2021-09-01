@@ -54,4 +54,11 @@ class RestaurantTest {
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //<<<<<<<<<<<<<<<<<<<<<<TOTAL ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void total_order_value_should_get_total_amount_when_items_are_selected(){
+        itemValue = restaurant.getMenu();
+        assertEquals(388,restaurant.totalOrderValue(itemValue));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<TOTAL ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>
 }
