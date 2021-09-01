@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -17,17 +18,33 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
+    public LocalTime getOpeningTime() {
+        return openingTime;
+    }
+
+    public void setOpeningTime(LocalTime openingTime) {
+        this.openingTime = openingTime;
+    }
+
+    public LocalTime getClosingTime() {
+        return closingTime;
+    }
+
+    public void setClosingTime(LocalTime closingTime) {
+        this.closingTime = closingTime;
+    }
+
     public boolean isRestaurantOpen() {
-        return true;
-        //DELETE ABOVE STATEMENT AND WRITE CODE HERE
+        LocalTime time = LocalTime.now();
+        if(time.compareTo(closingTime) < 0 && time.compareTo(openingTime) >= 0){
+            return true;
+        }
+        return false;
     }
 
-    public LocalTime getCurrentTime(){ return  LocalTime.now(); }
+    public LocalTime getCurrentTime(){  return LocalTime.now(); }
 
-    public List<Item> getMenu() {
-        return null;
-        //DELETE ABOVE RETURN STATEMENT AND WRITE CODE HERE
-    }
+    public List<Item> getMenu() {   return menu;    }
 
     private Item findItemByName(String itemName){
         for(Item item: menu) {
@@ -41,7 +58,7 @@ public class Restaurant {
         Item newItem = new Item(name,price);
         menu.add(newItem);
     }
-    
+
     public void removeFromMenu(String itemName) throws itemNotFoundException {
 
         Item itemToBeRemoved = findItemByName(itemName);
@@ -62,5 +79,7 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+
 
 }
